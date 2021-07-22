@@ -17,6 +17,7 @@ app.use(
   })
 )
 
+
 // Serve static files at `public` directory
 app.use(express.static(appRoot.resolve('/src/public')))
 

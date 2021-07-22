@@ -1,1 +1,4 @@
-console.log("fdkaflsj")
+//필요한 기능:
+
+
+//

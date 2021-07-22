@@ -1,12 +1,15 @@
+import appRoot from 'app-root-path'
 import express from 'express'
 
 const router = express.Router()
 
 router.get('/', (req, res) => {
-  res.redirect('/sign-in')
-  return
-
-  // res.render('index', { title: 'Hey', message: 'Hello World!' })
+  if (req.session.user) {
+    res.redirect('/welcome')
+    return
+  }
+  
+  res.sendFile(appRoot.resolve('/src/views-html/home.html'))
 })
 
 export { router as homeRouter }
