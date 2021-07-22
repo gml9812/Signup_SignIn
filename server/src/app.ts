@@ -39,4 +39,17 @@ export { app, PORT }
 
 
 
+
+
+//routers와 api는 get과 post를 수행한다.
+//이 때, 주어진 get,post에 따라 적절한 html&pug 페이지를 response로 반환한다. 해당 html&pug는 views 폴더에 존재한다.
+//views에서 사용할 js파일,폰트,이미지,css 등은 public 폴더에 존재한다.
+
+//여기서 js 파일은 webpack 사용하여 하나의 파일로 (.built.js) 통합되어 사용된다.
+//js 파일을 수정하기 위해서는 client 폴더에서 수정 마친 뒤, webpack 사용해 built.js 수정하면 된다. 
+
+
+
+
 //####### routers의 session, TEST는 미구현
+//####### client 폴더의 spring.styl의 정체는?
