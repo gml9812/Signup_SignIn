@@ -32,15 +32,46 @@ main {
     display: flex;
 }
 
-.button-wrap {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+.login > * {
+    flex-basis: 100%;
 }
 
+.button-wrap {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    margin-right: 0.5rem !important;
+}
+
+
+
 .sign-up-button {
+    display: inline-flex;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
     background-color: rgba(0,0,0,0.05);
+
 }
 
 .sign-in-button {
+    display: inline-flex;
+    position: relative;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    white-space: nowrap;
+    user-select: none;
     background-color: #5c16c5;
+    color: white;
 }
