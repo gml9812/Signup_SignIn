@@ -1,5 +1,11 @@
+:root {
+    --test: 5rem;
+}
+
+
+
 main {
-    padding: 5rem;
+    padding: var(--test);
     background-color: antiquewhite;
 }
 

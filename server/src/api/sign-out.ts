@@ -1,4 +1,4 @@
-import '../middlewares/current-user'
+//import '../middlewares/current-user' //이 파트는 왜 있는 거지?
 
 import express, { Request, Response } from 'express'
 

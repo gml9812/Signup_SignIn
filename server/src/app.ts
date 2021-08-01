@@ -1,10 +1,15 @@
-import express from 'express'
+import { api } from './api'
 import appRoot from 'app-root-path'
+import bodyParser from 'body-parser'
+import express from 'express'
 import { routers } from './routers'
 import session from 'express-session'
 
 const app = express()
 const PORT = 10100
+
+app.set('view engine', 'pug')
+app.set('views', appRoot.resolve('/src/views'))
 
 app.set('trust proxy', 1) // trust first proxy
 //session
@@ -17,6 +22,10 @@ app.use(
   })
 )
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
+app.use(api)
 
 // Serve static files at `public` directory
 app.use(express.static(appRoot.resolve('/src/public')))
@@ -26,6 +35,7 @@ app.use(routers)
 app.use(function (req, res, next) {
     res.status(404).sendFile(appRoot.resolve('/src/views-html/404.html'))
 })
+
 
 export { app, PORT }
 
