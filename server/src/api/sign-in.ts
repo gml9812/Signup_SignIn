@@ -13,6 +13,7 @@ router.post('/api/sign-in', async (req: Request, res: Response) => {
   const signInResult: ApiResponse = {
     err: null,
   }
+
   const { userId, password } = req.body
   const [err, [foundUser, _]] = await findUser({ userId })
 

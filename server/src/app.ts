@@ -4,6 +4,8 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import { routers } from './routers'
 import session from 'express-session'
+////////////////////
+import { users } from './api/users'
 
 const app = express()
 const PORT = 10100
@@ -26,6 +28,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(api)
+app.use(users)
 
 // Serve static files at `public` directory
 app.use(express.static(appRoot.resolve('/src/public')))
