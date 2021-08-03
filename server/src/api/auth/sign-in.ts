@@ -1,15 +1,17 @@
+//uuid 체크
+
 import express, { Request, Response } from 'express'
 
 import { ApiResponse } from '@/types'
-import { ErrMsg } from '../errors'
-import { comparePassword } from '../modules/encryption'
-import { createUserToken } from '../modules/database/schema/userToken'
-import { findUser } from '../modules/database/schema/user'
+import { ErrMsg } from '@/errors'
+import { comparePassword } from '@/modules/encryption'
+import { createUserToken } from '@/modules/database/schema/userToken'
+import { findUser } from '@/modules/database/schema/user'
 import { v4 as uuidv4 } from 'uuid'
 
 const router = express.Router()
 
-router.post('/api/sign-in', async (req: Request, res: Response) => {
+router.post('/api/auth/sign-in', async (req: Request, res: Response) => {
   const signInResult: ApiResponse = {
     err: null,
   }

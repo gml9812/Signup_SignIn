@@ -1,10 +1,10 @@
-import { api } from './api'
 import appRoot from 'app-root-path'
 import bodyParser from 'body-parser'
 import express from 'express'
 import { routers } from './routers'
 import session from 'express-session'
 ////////////////////
+import { auth } from './api/auth'
 import { users } from './api/users'
 
 const app = express()
@@ -27,7 +27,7 @@ app.use(
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(api)
+app.use(auth)
 app.use(users)
 
 // Serve static files at `public` directory

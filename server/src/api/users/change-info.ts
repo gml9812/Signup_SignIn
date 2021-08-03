@@ -1,6 +1,9 @@
+//error 처리 안됨
+//바꾸고 싶은 내용만 바꿀 수 있나?
+
 import express, { Request, Response } from 'express'
 import { ApiResponse } from '@/types'
-import { UserInfo, updateUser } from '@/modules/database/schema/user'
+import { UserInfo, updateUser, findUser } from '@/modules/database/schema/user'
 
 const router = express.Router()
 
@@ -19,19 +22,18 @@ router.put('/api/users/:userId', async (req: Request, res: Response) => {
   const changeInfoUser = await updateUser({
     userId: req.params.userId
   },{
-    userId,
-    password,
-    email,
-    name,
-    phone,
-    address,
+      userId: userId,
+      password: password,
+      email: email,
+      name: name,
+      phone: phone,
+      address: address,
   })
 
-  console.log(req.session)
+  const [err, [foundUser, _]] = await findUser({ userId })
 
-
-
-  //req.session.user = changeInfoUser /////changeInfoUser에는 err와 변경된 개수가 저장되어 있다. 
+  /////changeInfoUser에는 err와 변경된 개수가 저장되어 있다. 
+  req.session.user = foundUser
 
   res.json(changeInfoResponse)
   })
@@ -41,10 +43,19 @@ export { router as changeInfoRouter }
 
 ////
 /*
-fetch(`/api/users/1123`, {
+bodyParam = 
+  {"userId":"gml9812",
+  "password":"$2b$10$OiqFQMuAOFvhSalH.aipSe/WRxHmvSVThOtYGNv0LtpoORauvl/oW",
+  "email":"hee.jun.yun@gmail.comfnld",
+  "name":"윤희준ee",
+  "phone":"010-3275-9005",
+  "_id":"YfDM5bir8ExeJeIz"}
+
+fetch(`/api/users/gml9812`, {
   method: 'PUT',
   headers: {
     'Content-Type': 'application/json',
   },
+  body: JSON.stringify(bodyParam),
 })
 */
