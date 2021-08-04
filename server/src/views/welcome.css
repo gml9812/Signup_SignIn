@@ -81,3 +81,22 @@
   margin-top: 20px;
   font-weight: 600;
 }
+
+.my-info {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: #32d0aa;
+}
+
+.delete-account {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 600;
+  color:red;
+
+}

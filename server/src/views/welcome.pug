@@ -21,6 +21,7 @@ html(lang='en')
           div.user-info-wrapper
             label.user-info-label 이름
             p.user-info-content #{currentUser.name}
+
           div.user-info-wrapper
             label.user-info-label 아이디
             p.user-info-content #{currentUser.userId}
@@ -31,9 +32,14 @@ html(lang='en')
             label.user-info-label 휴대폰
             p.user-info-content #{currentUser.phone}
         p.description 위 내용은 내 정보 관리에서 수정하실 수 있습니다.
+        div.
         a.link(
           class="sign-out"
           href="/api/auth/sign-out"
         ) 로그아웃
+        a.link(
+          class="my-info"
+          href="/my-info"
+        ) 내 정보 관리
           
     script(type="module")

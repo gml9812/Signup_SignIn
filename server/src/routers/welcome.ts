@@ -8,7 +8,7 @@ router.get('/welcome', async (req: Request, res: Response) => {
     return
   }
 
-  res.render('welcome/welcome.pug', {
+  res.render('welcome.pug', {
     currentUser: req.session.user,
   })
 })
