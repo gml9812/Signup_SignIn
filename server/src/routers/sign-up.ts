@@ -9,7 +9,8 @@ router.get('/sign-up', (req, res) => {
     return
   }
 
-  res.sendFile(appRoot.resolve('/src/views-html/sign-up.html'))
+  res.render('sign-up.pug', {})
+  //res.sendFile(appRoot.resolve('/src/views-html/sign-up.html'))
 })
 
 export { router as signUpRouter }

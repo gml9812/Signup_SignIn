@@ -9,7 +9,8 @@ router.get('/sign-in', (req, res) => {
     return
   }
 
-  res.sendFile(appRoot.resolve('/src/views-html/sign-in.html'))
+  res.render('sign-in.pug', {})
+  //res.sendFile(appRoot.resolve('/src/views-html/sign-in.html'))
 })
 
 export { router as signInRouter }

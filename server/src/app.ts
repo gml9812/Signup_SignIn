@@ -36,7 +36,8 @@ app.use(express.static(appRoot.resolve('/src/public')))
 app.use(routers)
 
 app.use(function (req, res, next) {
-    res.status(404).sendFile(appRoot.resolve('/src/views-html/404.html'))
+  res.status(404).render('404.pug', {})
+    //res.status(404).sendFile(appRoot.resolve('/src/views-html/404.html'))
 })
 
 

@@ -1,0 +1,59 @@
+doctype html
+html(lang='en')
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title 로그인 | 배민상회
+    link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    link(rel="stylesheet" href="/styles/common/globalstyle.css")
+    link(rel="stylesheet" href="/styles/sign-in.css")
+    body
+      main.sign-in-main 
+        div.sign-in-container 
+          img.main-logo(
+            src="/assets/images/logo-ceo.svg"
+            alt="main-logo"
+          )
+          div.input-container 
+            div.input-wrapper.id 
+              div.input-icon.id 
+                i.icon tag 
+              input.input-text(
+                  placeholder="아이디"
+                  type="text"
+                  name="userId"
+                  spellcheck="false"
+                  autocomplete="off"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill
+              .msg-field 
+                span.msg-text 
+            div.input-wrapper.pw 
+              div.input-icon.pw 
+                i.icon lock 
+              input.input-text(
+                  placeholder="비밀번호"
+                  type="password"
+                  name="password"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill
+              .msg-field 
+                span.msg-text
+            button.sign-in-btn.btn 로그인
+            //여기 문법 맞나?
+            a.join(
+              href="/sign-up"
+            ) 회원가입
+              i.icon chevron_right
+            div 
+              a.github(
+                  href="https://github.com/woowa-techcamp-2020/market-6"
+                  target="_blank"
+              )
+                  i.icon logo_github
+      script(src="/dist/sign-in.built.js")
+            
+
+    
+

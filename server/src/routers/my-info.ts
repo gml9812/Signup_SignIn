@@ -8,7 +8,7 @@ router.get('/my-info', (req, res) => {
     return
   }
   
-  res.render('my-info.pug', {
+  res.render('my-info/my-info.pug', {
     currentUser: req.session.user,
   })
 })

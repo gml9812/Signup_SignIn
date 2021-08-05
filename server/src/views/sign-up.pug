@@ -1,0 +1,200 @@
+doctype html
+html(lang='en')
+  head
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title 회원가입 | 배민상회
+    link(rel="icon" href="/favicon.ico" type="image/x-icon")
+    link(rel="stylesheet" href="/styles/common/globalstyle.css")
+    link(rel="stylesheet" href="/styles/sign-up.css")
+    script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
+  body 
+    main.sign-up-main 
+      .left 
+        .input-container 
+          a.go-back(href="/sign-in")
+            i.icon chevron_left 뒤로가기
+          img.ceo-logo(
+            src="/assets/images/logo-ceo.svg", 
+            alt="CEO Logo"
+          )
+          .essential 
+            p.description 필수 정보를 입력해주세요
+            .input-wrapper.id 
+              .input-icon.id 
+                i.icon tag 
+              input.input-text(
+                placeholder="아이디"
+                type="text"
+                name="userId"
+                spellcheck="false"
+                autocomplete="off"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text 
+            .input-wrapper.pw 
+              .input-icon.pw 
+                i.icon lock 
+              input.input-text(
+                placeholder="비밀번호"
+                type="password"
+                name="password"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text 
+            .input-wrapper.pw-confirm.hidden
+              .input-icon.pw 
+                i.icon lock_fill
+              input.input-text(
+                placeholder="비밀번호 확인"
+                type="password"
+                tableindex="-1"
+                name="passwordConfirm"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text
+            .input-wrapper.email
+              .input-icon.email
+                i.icon envelope 
+              input.input-text(
+                placeholder="이메일"
+                type="email"
+                name="email"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text
+            .input-wrapper.name
+              .input-icon.name
+                i.icon person
+              input.input-text(
+                placeholder="이름"
+                type="text"
+                name="name"
+                spellcheck="false"
+              )
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text
+            .input-wrapper.phone 
+              .input-icon.phone 
+                i.icon phone
+              input.input-text(
+                placeholder="휴대폰"
+                type="tel"
+                name="phone"
+              )
+              button.action 인증받기
+              .msg-field 
+                span.msg-text
+            .input-wrapper.code.hidden
+              .input-icon.code
+                i.icon pencil_ellipsis_rectangle
+              input.input-text(
+                placeholder="인증번호 6자리 입력"
+                type="text"
+                tableindex="-1"
+              )
+              .timer.hidden
+              .check 
+                i.icon checkmark_alt_circle_fill 
+              .msg-field 
+                span.msg-text
+          .optional
+            label.description(for="optional-information-checkbox")
+              span.input-checkbox-wrapper 
+                input(
+                  type="checkbox"
+                  id="optional-information-checkbox"
+                )
+              span.text 선택 정보를 입력하시겠어요?
+            .input-wrapper.address.disabled 
+              .input-icon.address 
+                i.icon house_alt 
+              input.input-text.address-postal(
+                placeholder="우편번호"
+                type="text"
+                name="postalCode"
+                disabled
+              )
+              button.action.activated 주소찾기
+              .msg-field 
+                span.msg-text 
+            .input-wrapper.address.disabled 
+              input.input-text.address-default(
+                type="text"
+                placeholder="주소"
+                name="essentialAddress"
+                disabled
+              )
+            .input-wrapper.address.disabled 
+              input.input-text.address-detail(
+                type="text"
+                placeholder="상세 주소"
+                name="additionalAddress"
+                disabled
+              )
+          .policy 
+            .aa-checkbox-wrapper 
+              input(
+                type="checkbox"
+                id="agree-all-checkbox"
+              )
+              label(
+                  for="agree-all-checkbox"
+              ) 전체 약관에 동의합니다
+            .terms 
+              button.baemin-term-btn 배민사장님광장 이용약관
+              button.privacy-policy-btn 개인정보 수집이용 동의
+            .aa-checkbox-wrapper
+              input(
+                type="checkbox"
+                id="agree-essential-checkbox"
+              )
+              label.small(
+                for="agree-essential-checkbox"
+              ) 필수 항목에 동의합니다
+            .aa-checkbox-wrapper 
+              input(
+                type="checkbox"
+                id="agree-ad-checkbox"
+              )
+              label.small(
+                for="agree-ad-checkbox"
+              ) 광고성 정보 수신 동의(선택)
+          button.register-btn.btn 가입 완료
+
+      aside.aside 
+        img(
+          src="/assets/images/rider.png"
+          alt="rider"
+        )
+
+    aside.modal 
+      .bg 
+      .content 
+        button.close 
+          i.icon xmark 
+        article 
+    script(src="/dist/sign-up.built.js")
+
+    
+    
+
+
+
+
+            
+
+            
+            
+
+                
+        
