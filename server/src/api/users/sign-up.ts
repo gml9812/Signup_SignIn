@@ -15,7 +15,7 @@ const router = express.Router()
 //'/api/users/:userId'
 
 router.post(
-  '/api/sign-up',
+  '/api/users/sign-up',
   validateBody(['userId', 'password', 'email', 'name', 'phone']),
   async (req, res) => {
     const {

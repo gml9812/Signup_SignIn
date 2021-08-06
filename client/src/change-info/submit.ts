@@ -3,21 +3,15 @@ import { getAddress, isOptionalChecked } from './optional-part'
 
 import { UserInfo } from '@@/../server/src/modules/database/schema/user'
 import { fetchWrapper } from '@/main'
-import { isEssentialAgreed } from './policy'
 
 const signUpButton = document.querySelector('.register-btn')
+console.log(signUpButton)
 signUpButton.addEventListener('click', async () => {
   // Check client side first
   const result = checkEssentialPart()
 
   if (typeof result !== 'boolean') {
     result.focus()
-    return
-  }
-
-  // Check policy agreement
-  if (!isEssentialAgreed()) {
-    alert('필수 약관에 동의해야합니다.')
     return
   }
 
@@ -34,10 +28,13 @@ signUpButton.addEventListener('click', async () => {
     body.address = getAddress()
   }
 
-  const response = await fetchWrapper('POST', '/users/sign-up', body)
+  const response = await fetchWrapper('PATCH', `/users/change-info/${body.userId}`, body)
 
   if (response.err === null) {
-    alert('가입되었습니다.')
+    alert('정보가 변경되었습니다.')
     window.location.href = '/welcome'
+  }
+  else {
+      alert(response.err)
   }
 })

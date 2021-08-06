@@ -1,5 +1,15 @@
+import { Address } from '@@/../server/src/modules/database/schema/user'
+
+declare global {
+  interface Window {
+    daum: any
+  }
+}
+
 // checkbox handler
-const checkBox = document.querySelector('#optional-information-checkbox')
+const checkBox = document.querySelector(
+  '#optional-information-checkbox'
+) as HTMLInputElement
 
 checkBox.addEventListener('change', (e: Event) => {
   const { checked } = e.target as HTMLInputElement
@@ -48,3 +58,22 @@ const findAddress = (e) => {
 addressFindBtn.addEventListener('click', findAddress)
 addressPostal.addEventListener('click', findAddress)
 addressDefault.addEventListener('click', findAddress)
+
+export const isOptionalChecked = () => checkBox.checked
+export const getAddress = (): Address => {
+  const result = {} as Address
+
+  if (addressPostal.textContent) {
+    result.postalCode = parseInt(addressPostal.textContent)
+  }
+
+  if (addressDefault.textContent) {
+    result.essentialAddress = addressDefault.textContent
+  }
+
+  if (addressDetail.textContent) {
+    result.additionalAddress = addressDetail.textContent
+  }
+
+  return result
+}

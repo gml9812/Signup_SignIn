@@ -7,7 +7,7 @@ import { UserInfo, updateUser, findUser } from '@/modules/database/schema/user'
 
 const router = express.Router()
 
-router.put('/api/users/:userId', async (req: Request, res: Response) => {
+router.patch('/api/users/:userId', async (req: Request, res: Response) => {
   const {
     userId,
     password,
@@ -16,6 +16,8 @@ router.put('/api/users/:userId', async (req: Request, res: Response) => {
     phone,
     address,
   } = req.body as UserInfo
+
+  console.log(req.body)
 
   const changeInfoResponse: ApiResponse = { err: null }
 
