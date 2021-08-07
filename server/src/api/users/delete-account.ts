@@ -5,6 +5,10 @@ import { deleteUser } from '@/modules/database/schema/user'
 const router = express.Router()
 
 router.delete('/api/users/:userId', async (req: Request, res: Response) => {
+  //check if logged in
+  if (!req.session.user) {
+    return 
+  }
   
   const deleteAccountResponse: ApiResponse = { err: null }
 

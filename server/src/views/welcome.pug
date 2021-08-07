@@ -21,7 +21,6 @@ html(lang='en')
           div.user-info-wrapper
             label.user-info-label 이름
             p.user-info-content #{currentUser.name}
-
           div.user-info-wrapper
             label.user-info-label 아이디
             p.user-info-content #{currentUser.userId}
@@ -38,8 +37,17 @@ html(lang='en')
           href="/api/auth/sign-out"
         ) 로그아웃
         a.link(
-          class="my-info"
-          href="/my-info"
-        ) 내 정보 관리
-          
-    script(type="module")
+          class="delete-account"
+          href="/delete-account"
+        ) 탈퇴
+        button.delete-account-btn 탈퇴
+
+    aside.modal
+      .bg 
+      .content 
+        button.close 
+          i.icon xmark
+        button.ok 변경버튼
+        button.cancle 취소버튼
+        article 
+    script(src="/dist/welcome.built.js")

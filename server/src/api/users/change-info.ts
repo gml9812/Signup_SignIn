@@ -1,36 +1,34 @@
 //error 처리 안됨
-//바꾸고 싶은 내용만 바꿀 수 있나?
+//바꾸고 싶은 내용만 바꿀 수 있나?(완료)
+//로그인 완료시에만 가능하도록? 
 
 import express, { Request, Response } from 'express'
 import { ApiResponse } from '@/types'
 import { UserInfo, updateUser, findUser } from '@/modules/database/schema/user'
+import { runInNewContext } from 'vm'
 
 const router = express.Router()
 
 router.patch('/api/users/:userId', async (req: Request, res: Response) => {
-  const {
-    userId,
-    password,
-    email,
-    name,
-    phone,
-    address,
-  } = req.body as UserInfo
+
+  //check if logged in
+  if (!req.session.user) {
+    return 
+  }
+
+  const userId = req.params.userId
+  
+  const changeInfoResponse: ApiResponse = { err: null }
 
   console.log(req.body)
 
-  const changeInfoResponse: ApiResponse = { err: null }
-
   const changeInfoUser = await updateUser({
-    userId: req.params.userId
+    userId: userId,
   },{
-      userId: userId,
-      password: password,
-      email: email,
-      name: name,
-      phone: phone,
-      address: address,
+    $set: req.body
   })
+
+  console.log(changeInfoUser)
 
   const [err, [foundUser, _]] = await findUser({ userId })
 
@@ -53,8 +51,10 @@ bodyParam =
   "phone":"010-3275-9005",
   "_id":"YfDM5bir8ExeJeIz"}
 
+bodyParam = {"email":"hee.jun.yun@gmail.comfnddld","name":"윤희준ee",}
+
 fetch(`/api/users/gml9812`, {
-  method: 'PUT',
+  method: 'PATCH',
   headers: {
     'Content-Type': 'application/json',
   },

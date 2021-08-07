@@ -3,7 +3,6 @@ import bodyParser from 'body-parser'
 import express from 'express'
 import { routers } from './routers'
 import session from 'express-session'
-////////////////////
 import { auth } from './api/auth'
 import { users } from './api/users'
 

@@ -1,7 +1,5 @@
 import DataStore from 'nedb'
 
-//make wrapper functions
-
 export function makeCreateFunction<T>(store: DataStore<T>) {
   return (doc: T): Promise<[Error, T]> => {
     return new Promise((resolve) => {
@@ -31,7 +29,7 @@ export function makeUpdateFunction<T>(store: DataStore<T>) {
     query: {
       [K in keyof T]?: T[K]
     },
-    update: Partial<T>
+     update: Partial<T> | {$set:Partial<T>}
   ): Promise<[Error, number]> => {
     return new Promise((resolve) => {
       store.update(query, update, {}, (err, numAffected) => {

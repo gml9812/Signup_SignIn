@@ -5,7 +5,7 @@ const config = {
   entry: {
     'sign-in': './src/sign-in.ts',
     'sign-up': './src/sign-up/index.ts',
-    'change-info': './src/change-info/index.ts',
+    'welcome': './src/welcome/index.ts',
   },
   module: {
     rules: [
