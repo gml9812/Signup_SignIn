@@ -74,6 +74,11 @@
   color: var(--gray);
 }
 
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .sign-out {
   display: block;
   text-align: center;
@@ -82,14 +87,13 @@
   font-weight: 600;
 }
 
-.delete-account {
+.delete-account-btn {
   display: block;
   text-align: center;
   font-size: 14px;
   margin-top: 20px;
   font-weight: 600;
-  color:red;
-
+  color: var(--red);
 }
 
 
@@ -130,7 +134,7 @@
   font-size: 20px;
   background-color: #fff;
   border-radius: 9999px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   cursor: pointer;
 }
 
@@ -141,18 +145,44 @@
 }
 
 .modal .content {
-  /* background-color: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px); */
   background-color: #fff;
   border-radius: 20px;
   padding: 20px;
   width: 100%;
   height: 100%;
-  max-width: 700px;
-  max-height: 700px;
+  max-width: 400px;
+  max-height: 300px;
   overflow-y: auto;
 }
 
 .modal.visible .content {
   animation: springZoomOutLight 0.7s linear forwards;
+}
+
+.modal-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-head {
+  align-content: center;
+  margin-bottom: 10px;
+}
+
+.ok {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--green);
+}
+
+.cancle {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+  font-weight: 600;
+  color: var(--red);
 }

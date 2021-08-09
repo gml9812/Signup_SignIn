@@ -20,15 +20,11 @@ router.patch('/api/users/:userId', async (req: Request, res: Response) => {
   
   const changeInfoResponse: ApiResponse = { err: null }
 
-  console.log(req.body)
-
   const changeInfoUser = await updateUser({
     userId: userId,
   },{
     $set: req.body
   })
-
-  console.log(changeInfoUser)
 
   const [err, [foundUser, _]] = await findUser({ userId })
 

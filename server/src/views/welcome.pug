@@ -20,34 +20,31 @@ html(lang='en')
         div.user-info-container
           div.user-info-wrapper
             label.user-info-label 이름
-            p.user-info-content #{currentUser.name}
+            p.user-info-content(id="name") #{currentUser.name}
           div.user-info-wrapper
             label.user-info-label 아이디
-            p.user-info-content #{currentUser.userId}
+            p.user-info-content(id="userId") #{currentUser.userId}
           div.user-info-wrapper
             label.user-info-label 이메일
-            p.user-info-content #{currentUser.email}
+            p.user-info-content(id="email") #{currentUser.email}
           div.user-info-wrapper
             label.user-info-label 휴대폰
-            p.user-info-content #{currentUser.phone}
-        p.description 위 내용은 내 정보 관리에서 수정하실 수 있습니다.
-        div.
-        a.link(
-          class="sign-out"
-          href="/api/auth/sign-out"
-        ) 로그아웃
-        a.link(
-          class="delete-account"
-          href="/delete-account"
-        ) 탈퇴
-        button.delete-account-btn 탈퇴
+            p.user-info-content(id="phone") #{currentUser.phone}
+        p.description 개인정보를 클릭해서 수정하실 수 있어요!
+        div.button-wrapper
+          a.link(
+            class="sign-out"
+            href="/api/auth/sign-out"
+          ) 로그아웃
+          button.delete-account-btn 탈퇴
 
     aside.modal
       .bg 
       .content 
         button.close 
           i.icon xmark
-        button.ok 변경버튼
-        button.cancle 취소버튼
-        article 
+        .modal-main
+        .button-wrapper
+          button.ok 변경
+          button.cancle 취소
     script(src="/dist/welcome.built.js")

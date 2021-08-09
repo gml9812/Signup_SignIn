@@ -1,3 +1,2 @@
-//import './essential-part'
-//import './optional-part'
-import './submit'
+import './change-info'
+import './delete-account'
