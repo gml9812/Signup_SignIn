@@ -5,9 +5,9 @@ import express, { Request, Response } from 'express'
 import { ApiResponse } from '@/types'
 import { ErrMsg } from '@/errors'
 import { comparePassword } from '@/modules/encryption'
-import { createUserToken } from '@/modules/database/schema/userToken'
 import { findUser } from '@/modules/database/schema/user'
-import { v4 as uuidv4 } from 'uuid'
+
+import jwt from 'jsonwebtoken'
 
 const router = express.Router()
 
@@ -40,8 +40,6 @@ router.post('/api/auth/sign-in', async (req: Request, res: Response) => {
 
   req.session.user = foundUser
 
-  const token = uuidv4()
-  await createUserToken({ userId, token })
   res.send(signInResult)
 })
 

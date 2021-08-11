@@ -2,9 +2,10 @@ import appRoot from 'app-root-path'
 import bodyParser from 'body-parser'
 import express from 'express'
 import { routers } from './routers'
-import session from 'express-session'
 import { auth } from './api/auth'
 import { users } from './api/users'
+
+import session from 'express-session'
 
 const app = express()
 const PORT = 10100
@@ -13,6 +14,7 @@ app.set('view engine', 'pug')
 app.set('views', appRoot.resolve('/src/views'))
 
 app.set('trust proxy', 1) // trust first proxy
+
 //session
 app.use(
   session({
@@ -36,7 +38,6 @@ app.use(routers)
 
 app.use(function (req, res, next) {
   res.status(404).render('404.pug', {})
-    //res.status(404).sendFile(appRoot.resolve('/src/views-html/404.html'))
 })
 
 
