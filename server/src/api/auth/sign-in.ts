@@ -7,8 +7,6 @@ import { ErrMsg } from '@/errors'
 import { comparePassword } from '@/modules/encryption'
 import { findUser } from '@/modules/database/schema/user'
 
-import jwt from 'jsonwebtoken'
-
 const router = express.Router()
 
 router.post('/api/auth/sign-in', async (req: Request, res: Response) => {

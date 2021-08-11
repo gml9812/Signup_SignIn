@@ -30,11 +30,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(auth)
 app.use(users)
+app.use(routers)
+//app.use('/api', router) => will change to this
 
 // Serve static files at `public` directory
 app.use(express.static(appRoot.resolve('/src/public')))
-
-app.use(routers)
 
 app.use(function (req, res, next) {
   res.status(404).render('404.pug', {})
