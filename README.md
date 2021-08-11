@@ -31,6 +31,7 @@ html -> pug로 전환
 
 # 08-11
 재사용성 고려해 server 폴더 구조 변경
+apis 폴더를 components와 routers로 변경. 
 
 # nxt
 client 컴포넌트 형태로 변경(like react)
