@@ -1,5 +1,4 @@
 # Signup_SignIn
-signup and signin implemented with javascript on server side(Node.js) and client side(vanilla)
 
 # Start(~07-27)
 https://github.com/woowa-techcamp-2020/market-6 
@@ -18,7 +17,15 @@ session과 cookie 를 사용하면 이러한 문제를 해결할 수 있다(http
 이 문제를 해결하기 위해 사용할 수 있는 것이 JWT다
 http://www.opennaru.com/opennaru-blog/jwt-json-web-token/
 
-
-
-
 rest api
+
+
+# 08-01
+API 좀 더 RESTful 하게 변경
+
+# 08-04
+html -> pug로 전환
+
+# 08-08
+계정 정보 수정 및 삭제 기능 추가
+
