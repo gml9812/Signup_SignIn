@@ -1,11 +1,11 @@
 import appRoot from 'app-root-path'
 import bodyParser from 'body-parser'
 import express from 'express'
-import { routers } from './routers'
-import { auth } from './api/auth'
-import { users } from './api/users'
 
 import session from 'express-session'
+
+//const routes = require('./routes')
+import { routes } from './routes'
 
 const app = express()
 const PORT = 10100
@@ -25,13 +25,12 @@ app.use(
   })
 )
 
+
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
-app.use(auth)
-app.use(users)
-app.use(routers)
-//app.use('/api', router) => will change to this
+
+app.use('/api', routes) //=> will change to this
 
 // Serve static files at `public` directory
 app.use(express.static(appRoot.resolve('/src/public')))
