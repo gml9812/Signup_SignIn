@@ -17,7 +17,7 @@ const idInputWrapper = setInputWrapper({
     }
 
     try {
-      const response = await fetch('/api/auth/is-unique-user-id', {
+      const response = await fetch('/api/user/isUnique', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',

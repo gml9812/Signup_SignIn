@@ -9,11 +9,11 @@ deleteAccountButton.addEventListener('click', async () => {
   
     const body = {} as UserInfo
   
-    const response = await fetchWrapper('DELETE', `/users/${userId.innerHTML}`, body)
+    const response = await fetchWrapper('DELETE', `/users/`, body)
   
     if (response.err === null) {
       alert('계정이 삭제되었습니다.')
-      window.location.href = '/'
+      window.location.href = '/api/page/'
     }
     else {
         alert(response.err)

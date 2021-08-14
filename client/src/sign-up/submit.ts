@@ -34,10 +34,10 @@ signUpButton.addEventListener('click', async () => {
     body.address = getAddress()
   }
 
-  const response = await fetchWrapper('POST', '/users/sign-up', body)
+  const response = await fetchWrapper('POST', '/user/', body)
 
   if (response.err === null) {
     alert('가입되었습니다.')
-    window.location.href = '/welcome'
+    window.location.href = '/api/page/welcome'
   }
 })

@@ -1,19 +1,16 @@
-import express from 'express'
 
 //signIn
-import { ApiResponse } from '../types'
-import { ErrMsg } from '../errors'
-import { comparePassword, encryptPassword } from '../modules/encryption'
+import { ApiResponse } from '../../types'
+import { ErrMsg } from '../../errors'
+import { comparePassword, encryptPassword } from '../../modules/encryption'
 
 //create
-import { validateBody } from '../middlewares/validate-body'
+import { validateBody } from '../../middlewares/validate-body'
 
 //update
-import { UserInfo, createUser, updateUser, findUser, deleteUser, isUniqueUserId } from '../modules/database/schema/user'
+import { UserInfo, createUser, updateUser, findUser, deleteUser, isUniqueUserId } from '../../modules/database/schema/user'
 
-
-
-exports.signIn = async (req, res) => {
+export const signIn = async (req, res) => {
     const signInResult: ApiResponse = {
         err: null,
       }
@@ -45,17 +42,17 @@ exports.signIn = async (req, res) => {
       res.send(signInResult)
 }
 
-exports.signOut = async (req, res) => {
+export const signOut = async (req, res) => {
     req.session.destroy((err) => {
         if (err) {
           console.error(err)
         }
       })
     
-      res.redirect('/')
+      res.redirect('/api/page/')
 }
 
-exports.create = async (req, res) => {
+export const createId = async (req, res) => {
     const {
         userId,
         password,
@@ -87,7 +84,7 @@ exports.create = async (req, res) => {
       res.json(signUpResponse)
 }
 
-exports.update = async (req, res) => {
+export const updateId = async (req, res) => {
     //check if logged in
   if (!req.session.user) {
     return 
@@ -112,7 +109,7 @@ exports.update = async (req, res) => {
 
 }
 
-exports.delete = async (req, res) => {
+export const deleteId = async (req, res) => {
     //check if logged in
   if (!req.session.user) {
     return 
@@ -131,10 +128,11 @@ exports.delete = async (req, res) => {
   res.json(deleteAccountResponse)
 }
 
-exports.post = async (req,res) => {
+export const isUnique = async (req,res) => {
   const { userId } = req.body as { userId: string }
 
   const result = await isUniqueUserId(userId)
 
   res.json(result)
 }
+

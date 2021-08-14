@@ -25,11 +25,11 @@ async function changeInfo(input) {
 
     body[input.name] = input.value
 
-    const response = await fetchWrapper('PATCH', `/users/${userId.innerHTML}`, body)
+    const response = await fetchWrapper('PATCH', `/users/`, body)
   
     if (response.err === null) {
       alert('변경되었습니다.')
-      window.location.href = '/welcome'
+      window.location.href = '/api/page/welcome'
     }
 }
 

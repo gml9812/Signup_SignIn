@@ -5,7 +5,7 @@ import express from 'express'
 import session from 'express-session'
 
 //const routes = require('./routes')
-import { routes } from './routes'
+import { routes } from './api/routes'
 
 const app = express()
 const PORT = 10100

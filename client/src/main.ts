@@ -55,7 +55,7 @@ export const onSubmitHandler = async (e: Event, url: string) => {
 
   const { err: errors } = await fetchWrapper('POST', url, body)
   if (!errors) {
-    window.location.href = '/welcome'
+    window.location.href = '/api/page/welcome' //@@@@@@@@@@@@@
     return
   }
 

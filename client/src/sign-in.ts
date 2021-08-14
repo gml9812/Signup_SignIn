@@ -1,4 +1,4 @@
-import Validator from '../../server/src/modules/validators'
+//import Validator from '../../server/src/modules/validators'
 import { onSubmitHandler } from './main'
 
 const signInButton = document.querySelector('.sign-in-btn')
@@ -21,7 +21,7 @@ const userPwInput = document.querySelector(
 ) as HTMLInputElement
 
 async function submit() {
-  const res = await onSubmitHandler(null, '/auth/sign-in')
+  const res = await onSubmitHandler(null, '/user/signIn')
 
   if (res && res.userId) {
     userIdInput.focus()
@@ -49,6 +49,7 @@ userPwInput.addEventListener('keydown', async (e) => {
 
 
 //아래 두 함수는 왜인지는 몰라도 사용되지 않는다.
+/*
 const validationOnBlur = (e: Event) => {
   const inputElement = e.target
   if (!(inputElement instanceof HTMLInputElement)) {
@@ -101,7 +102,7 @@ const validationOnChange = (e: Event) => {
     wrapper.classList.remove('invalid-input')
   }
 }
-
+*/
 // userIdInput.addEventListener('input', validationOnChange)
 // const inputs = Array.from(document.querySelectorAll('.input-text'))
 // inputs.forEach((input) => {
