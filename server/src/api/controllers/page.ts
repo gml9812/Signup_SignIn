@@ -31,3 +31,8 @@ export const welcome = async (req, res) => {
         currentUser: req.session.user,
       })
 }
+
+//temp@@@@@@@@@@@@@@@@@@@@@@@@@@
+export const index = async (req, res) => {
+    res.render('index.pug')
+}

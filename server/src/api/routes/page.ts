@@ -11,5 +11,9 @@ router.get('/signIn',signIn)
 router.get('/signUp',signUp)
 router.get('/welcome',welcome)
 
+//temp@@@@@@@@@@@@@@@@@@@@@@@@@@@
+import { index } from '../controllers/page'
+router.get('/index',index)
+
 //module.exports = router
 export { router as pageRouter }
