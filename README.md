@@ -1,37 +1,48 @@
 # Signup_SignIn
-
-# Start(~07-27)
-https://github.com/woowa-techcamp-2020/market-6 
-의 동작 방식을 이해했다. 
-client에는 웹 페이지에서 사용될 js 파일이 존재하며, build 시 webpack를 이용해 server의 dist 폴더에 하나의 파일로 저장된다. 
-server에는 api들과 웹 페이지에서 사용될 html(or pug), css, image 등이 존재한다. 
-
-# 07-28
-로그인 방식에 대한 고찰:
-http는 기본적으로 connectionless, stateless하다. 때문에 사용자를 식별할 방법이 없어, 웹사이트에서 어떠한 동작을 실행할 때마다 로그인 인증을 다시 해야만 한다. 
-session과 cookie 를 사용하면 이러한 문제를 해결할 수 있다(https://cjh5414.github.io/cookie-and-session/).
-재인증 없이 로그인이 필요한 기능들을 쓸 수 있을 뿐만 아니라, 사이트를 닫았다 다시 들어가도 로그인이 유지된다. 
-이 프로젝트에서는 session과 session cookie를 사용하여 로그인을 구현하고 있다. 
-그런데 session 은 서버 자원을 사용해야 한다는 단점이 있다. 
-
-이 문제를 해결하기 위해 사용할 수 있는 것이 JWT다
-http://www.opennaru.com/opennaru-blog/jwt-json-web-token/
-
-rest api
+https://github.com/woowa-techcamp-2020/market-6 을 바탕으로 클론코딩 및 기능 수정을 진행하며 학습한 기록. 
 
 
-# 08-01
-API 좀 더 RESTful 하게 변경
+## 무엇을 고쳐보았나
 
-# 08-04
-html -> pug로 전환
+### Api를 더 RESTful 하게 변경
+uri로 자원을, http method로 행동을 표시하는 방식으로 변경했다. 
 
-# 08-08
-계정 정보 수정 및 삭제 기능 추가
+### 계정 정보 수정, 탈퇴 기능 추가
+기존에 제공하던 가입 및 로그인 기능 외에도, 개인정보 수정과 탈퇴 기능을 추가했다. 
 
-# 08-11
-재사용성 고려해 server 폴더 구조 변경
-apis 폴더를 components와 routers로 변경. 
+### 수정의 용이함을 고려한 구조 변경
+route와 controller를 분리함으로서 쉽고 간결한 유지보수가 가능하게 했다. 
 
-# nxt
-client 컴포넌트 형태로 변경(like react)
+### html을 pug로 전환
+node express에서 사용가능한 템플릿 엔진 중 하나인 pug를 사용하여 가독성을 향상시켰다.
+
+## 무엇을 배웠나
+
+### 인증 방식
+세션 기반 인증, 토큰 기반 인증, oAuth 기반 인증의 차이를 학습했다. 
+
+### nodejs & express
+express를 사용하여 기본적인 api를 구축하는 방식을 학습했다. 
+
+### typescript
+typescript로 코드를 수정하며 기본적인 문법 및 테스트와 디버깅의 용이함 면에서 타입스크립트가 가지는 장점을 학습했다. 
+
+### jest
+jest를 사용한 테스트와 TDD에 대한 기초를 학습했다. 
+
+### webpack
+
+### using animation
+
+
+## 무엇을 더 수정할 수 있나
+
+### 인증 방식 변경
+
+### UI 수정
+
+### client 코드를 React 혹은 React-like한 코드로 변경
+
+
+
+
